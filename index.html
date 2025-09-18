@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tech Fest 2025 - Event Portal</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">TechFest 2025</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#register">Register</a></li>
+        </ul>
+        <div class="login-box">
+          <form class="login-form">
+            <input type="text" placeholder="Username" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+    <header2 class="header2">
+      <!-- ================= BANNER ================= -->
+      <section id="home" class="banner">
+        <h1>Welcome to Tech Fest 2025</h1>
+        <p>Innovate • Create • Celebrate</p>
+      </section>
+      <img src="banner.jpg" alt="Tech Fest Banner" class="banner-image" />
+
+      <!-- ================= GALLERY ================= -->
+      <section id="gallery" class="gallery">
+        <h2>Event Highlights</h2>
+        <div class="gallery-grid">
+          <figure>
+            <img src="gallery_img1.jpg" alt="Team brainstorming session" />
+            <figcaption>Brainstorming Workshop</figcaption>
+          </figure>
+          <figure>
+            <img src="gallery_img2.jpg" alt="Speaker on stage" />
+            <figcaption>Keynote Speaker Session</figcaption>
+          </figure>
+          <figure>
+            <img src="gallery_img3.jpg" alt="Students with robot" />
+            <figcaption>Robotics Challenge</figcaption>
+          </figure>
+          <figure>
+            <img src="gallery_img4.jpg" alt="Networking event" />
+            <figcaption>Networking & Collaboration</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================= INTRO ================= -->
+      <section id="about" class="intro">
+        <h2>About the Fest</h2>
+        <p>
+          Tech Fest 2025 brings together brilliant minds from across the country
+          to showcase innovation, creativity, and cutting-edge technology.
+          Participate in workshops, hackathons, and cultural evenings to make
+          your experience unforgettable.
+        </p>
+      </section>
+
+      <!-- ================= REGISTRATION FORM ================= -->
+      <section id="register" class="registration">
+        <h2>Online Registration</h2>
+        <form
+          action="/serverlogic"
+          method="post"
+          enctype="multipart/form-data"
+          id="regForm"
+        >
+          <fieldset>
+            <legend>Personal Details</legend>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="fullname" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">Phone:</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              pattern="[0-9]{10}"
+              required
+            />
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required />
+
+            <label for="website">Portfolio URL:</label>
+            <input type="url" id="website" name="website" />
+
+            <label for="photo">Upload Photo:</label>
+            <input
+              type="file"
+              id="photo"
+              name="photo"
+              accept="image/*"
+              required
+            />
+          </fieldset>
+
+          <fieldset>
+            <legend>Event Selection</legend>
+            <p>Choose Track:</p>
+            <label
+              ><input type="radio" name="track" value="Hackathon" required />
+              Hackathon</label
+            >
+            <label
+              ><input type="radio" name="track" value="Robotics" />
+              Robotics</label
+            >
+
+            <p>Preferences:</p>
+            <label
+              ><input type="checkbox" name="preference" value="AI" /> AI</label
+            >
+            <label
+              ><input type="checkbox" name="preference" value="IoT" />
+              IoT</label
+            >
+            <label
+              ><input type="checkbox" name="preference" value="AR/VR" />
+              AR/VR</label
+            >
+            <label
+              ><input type="checkbox" name="preference" value="Cybersecurity" />
+              Cybersecurity</label
+            >
+          </fieldset>
+
+          <fieldset>
+            <legend>Additional Info</legend>
+            <label for="event">Select Event:</label>
+            <select id="event" name="event">
+              <option value="Coding">Coding</option>
+              <option value="Quiz">Quiz</option>
+              <option value="Design">Design</option>
+              <option value="Gaming">Gaming</option>
+              <option value="Workshop">Workshop</option>
+            </select>
+
+            <label for="comments">Any Comments:</label>
+            <textarea id="comments" name="comments" rows="4"></textarea>
+          </fieldset>
+
+          <progress id="formProgress" value="0" max="100"></progress>
+
+          <div class="form-buttons">
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+          </div>
+        </form>
+      </section>
+
+      <!-- ================= UTILITIES ================= -->
+      <section id="utilities" class="utilities">
+        <h2>Interactive Utilities</h2>
+
+        <div class="utility-box">
+          <h3>BMI Calculator</h3>
+          <label for="height">Height (m):</label>
+          <input type="number" id="height" step="0.01" />
+          <label for="weight">Weight (kg):</label>
+          <input type="number" id="weight" />
+          <button onclick="calculateBMI()">Calculate</button>
+          <p id="bmiResult"></p>
+        </div>
+
+        <div class="utility-box">
+          <h3>Currency Converter (INR → USD)</h3>
+          <label for="inr">Amount in INR:</label>
+          <input type="number" id="inr" />
+          <p>Equivalent in USD: <span id="usd">0</span></p>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2025 Tech Fest | Designed for Academic Project</p>
+      </footer>
+
+      <script src="script.js"></script>
+    </header2>
+  </body>
+</html>
